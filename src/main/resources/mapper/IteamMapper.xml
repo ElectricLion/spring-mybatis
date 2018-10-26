@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmybatis.mapper.IteamMapper">
+    <resultMap id="Base_Result_Map" type="com.springmybatis.pojo.Iteam">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+    </resultMap>
+    <select id="select" resultMap="Base_Result_Map">
+       select id,title from tb_item
+    </select>
+    <insert id="add">
+INSERT INTO tb_item
+	(id, title, sell_point, price, num, barcode, image, cid, `status`, created, updated)
+	VALUES (#{id}, '', '', 0, 0, '', '', 0, 0, NOW(), NOW())
+    </insert>
+</mapper>
