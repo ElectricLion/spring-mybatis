@@ -1,7 +1,7 @@
 package com.springmybatis.controller;
 
 
-import com.springmybatis.config.ReadOnlyConnection;
+import com.springmybatis.dbconfig.ReadOnlyConnection;
 import com.springmybatis.mapper.IteamMapper;
 import com.springmybatis.pojo.Iteam;
 import org.springframework.beans.factory.annotation.Autowired;

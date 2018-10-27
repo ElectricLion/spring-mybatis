@@ -1,4 +1,4 @@
-package com.springmybatis.config;
+package com.springmybatis.dbconfig;
 
 
 /**

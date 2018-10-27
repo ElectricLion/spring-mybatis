@@ -1,4 +1,4 @@
-package com.springmybatis.config;
+package com.springmybatis.dbconfig;
 
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -25,6 +25,11 @@ import java.util.Properties;
  */
 @Configuration
 public class MyBatisConfig {
+
+    /**
+     * 分页插件
+     * @return
+     */
     @Bean
     public PageHelper pageHelper() {
         PageHelper pageHelper = new PageHelper();

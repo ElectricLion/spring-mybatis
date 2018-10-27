@@ -1,4 +1,4 @@
-package com.springmybatis.config;
+package com.springmybatis.dbconfig;
 
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -14,20 +14,15 @@ import java.lang.reflect.Method;
 
 
 @Component
-
 @Aspect
 public class DataSourceAspect {
     Logger logger = LoggerFactory.getLogger(DataSourceAspect.class);
-
-    @Pointcut("@annotation(com.springmybatis.config.ReadOnlyConnection)")
-
+    //切入点为注解
+    @Pointcut("@annotation(com.springmybatis.dbconfig.ReadOnlyConnection)")
     public void dataSourcePointcut() {
-
     }
 
-
     @Around("dataSourcePointcut()")
-
     public Object doAround(ProceedingJoinPoint pjp) {
 
         MethodSignature methodSignature = (MethodSignature) pjp.getSignature();
@@ -38,15 +33,12 @@ public class DataSourceAspect {
 
         DbContextHolder.DbType sourceEnum = typeAnno.value();
 
-
         if (sourceEnum == DbContextHolder.DbType.WRITE) {
             logger.info("++++++++++++++切换读库+++++++++++++++");
             DbContextHolder.setDbType(DbContextHolder.DbType.WRITE);
-
         } else if (sourceEnum == DbContextHolder.DbType.READ) {
             logger.info("++++++++++++++切换读库+++++++++++++++");
             DbContextHolder.setDbType(DbContextHolder.DbType.READ);
-
         }
         Object result = null;
 
