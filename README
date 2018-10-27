@@ -1,0 +1,5 @@
+该项目使用了spring、Mybatis
+通过AbstractRoutingDataSource来实现的Mysql 的主从 
+       
+用到了通用mapper 插件、pageHelper分页插件          
+     
